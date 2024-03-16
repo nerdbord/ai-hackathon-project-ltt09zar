@@ -1,27 +1,26 @@
 const API_URL = "https://training.nerdbord.io/api/v1/openai/chat/completions";
-const API_TOKEN = `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`;
+const API_TOKEN = import.meta.env.VITE_OPENAI_API_KEY;
 
 export const main = () => {
     console.log("Calling OpenAI");
     fetch(API_URL, {
         method: "POST",
         headers: {
+            "Content-Type": "application/json",
             "Authorization": API_TOKEN,
-            "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            "model": "gpt-3.5-turbo",
-            "messages": [
+            model: "gpt-3.5-turbo",
+            messages: [
                 {
-                    "role": "system",
-                    "content": "You are a helpful assistant."
+                    role: "system",
+                    content: "You are a helpful assistant.",
                 },
                 {
-                    "role": "user",
-                    "content": "Hello!"
-                }
+                    role: "user",
+                    content: "Hello!",
+                },
             ],
-            "prompt": "Once upon a time",
         })
     }).then((response) => {
         return response.json();
@@ -32,4 +31,4 @@ export const main = () => {
         console.log('Something bad happened');
         console.log(error);
     });
-}
+};
