@@ -26,7 +26,7 @@ export const main = () => {
         return response.json();
     }).then((data) => {
         console.log(data);
-        console.log(data.choices[0].text)
+        console.log(data.choices[0].message.content)
     }).catch((error) => {
         console.log('Something bad happened');
         console.log(error);
