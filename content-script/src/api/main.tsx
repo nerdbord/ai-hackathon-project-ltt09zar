@@ -1,7 +1,7 @@
 const API_URL = "https://training.nerdbord.io/api/v1/openai/chat/completions";
 const API_TOKEN = import.meta.env.VITE_OPENAI_API_KEY;
 
-export const main = () => {
+export const useOpenAI = () => {
     console.log("Calling OpenAI");
     fetch(API_URL, {
         method: "POST",
