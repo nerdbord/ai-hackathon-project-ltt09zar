@@ -64,7 +64,7 @@ const CheckList = () => {
           <p>{checkbox.label}</p>
         </div>
       ))}
-      <Progress value={progress} className="bg-white"/>
+      <Progress value={progress} className="bg-white [&>*]:bg-[#66ED00]"/>
     </div>
   );
 };
