@@ -56,7 +56,7 @@ const CheckList = () => {
       {checkboxes.map((checkbox, index) => (
         <div className="flex gap-2" key={index}>
           <input
-            className="border-[1px] border-black w-8 h-8 bg-white flex-shrink-0 rounded-sm accent-[#6EFF00] checked:bg-white"
+            className="border-[1px] border-black w-8 h-8 bg-white flex-shrink-0 rounded-sm checkbox  "
             checked={checkbox.checked}
             type="checkbox"
             onChange={() => handleCheckboxChange(index)}
