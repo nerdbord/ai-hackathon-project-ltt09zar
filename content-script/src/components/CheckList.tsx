@@ -1,5 +1,6 @@
 import React from "react";
 import { Progress } from "./ui/progress";
+import Header from "./Header";
 
 const CheckList = () => {
   const [checkboxes, setCheckboxes] = React.useState([
@@ -49,13 +50,14 @@ const CheckList = () => {
     (checkboxes.filter((checkbox) => checkbox.checked).length /
       checkboxes.length) *
     100;
-
+  console.log(progress);
   return (
     <div className="space-y-6">
+      <Header text='Make your online shopping sustainable!' />
       {checkboxes.map((checkbox, index) => (
         <div className="flex gap-2" key={index}>
           <input
-            className="border-[1px] border-black w-8 h-8 bg-white flex-shrink-0 rounded-sm accent-[#6EFF00] checked:bg-white"
+            className="border-[1px] border-black w-8 h-8 bg-white flex-shrink-0 rounded-sm checkbox  "
             checked={checkbox.checked}
             type="checkbox"
             onChange={() => handleCheckboxChange(index)}
@@ -63,7 +65,16 @@ const CheckList = () => {
           <p>{checkbox.label}</p>
         </div>
       ))}
+<<<<<<< HEAD
       <Progress value={progress} className="bg-white" />
+=======
+      <Progress value={progress} className="bg-white  [&>*]:bg-gradient-to-r [&>*]:from-[#DBFF00] [&>*]:to-[#6EFF00] " />
+      {progress === 100 ? (
+        <div className="bg-gradient-to-r from-[#DBFF00] to-[#6EFF00] flex justify-center items-center w-full py-5 px-11 rounded-[94px]">
+          <span className="font-bold">Green Shopper Hero!</span>
+        </div>
+      ) : null}
+>>>>>>> 393f99e649d766a2ccb6f38811ed1798597dee3e
     </div>
   );
 };
