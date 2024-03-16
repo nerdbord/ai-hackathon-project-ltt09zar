@@ -39,3 +39,19 @@ export function handleHideShipping() {
     }
   });
 }
+
+// TODO: ogarnac to przez AI
+export function handleComments() {
+  const spans = document.querySelectorAll("span");
+
+  spans.forEach(span => {
+  })
+}
+
+// TODO: przemyslec
+export function cashbackPolicy() {
+  const spans = document.querySelectorAll("span");
+
+  spans.forEach(span => {
+  })
+}
