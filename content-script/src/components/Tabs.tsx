@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as ChatWhite } from "../assets/ChatWhite.svg";
 import { ReactComponent as ListWhite } from "../assets/ListWhite.svg";
 import { ReactComponent as SwitchesWhite } from "../assets/SwitchesWhite.svg";
@@ -6,6 +5,7 @@ import { ReactComponent as ChatGreen } from "../assets/ChatGreen.svg";
 import { ReactComponent as ListGreen } from "../assets/ListGreen.svg";
 import { ReactComponent as SwitchesGreen } from "../assets/SwitchesGreen.svg";
 import { useActiveTabStore } from "@/store/store";
+
 const Tabs = () => {
   const { activeTab, setActiveTab } = useActiveTabStore();
   return (

@@ -11,7 +11,7 @@ const Switches = () => {
           onClick={() => setSwitches({ ...switches, sales: !switches.sales })}
           switchState={switches.sales}
         />
-        <p>Hide information about sales.</p>
+        <p>Ukryj informacje o promocjach</p>
       </div>
       <div className="flex gap-2 justify-center items-center">
         <Switch
@@ -20,7 +20,7 @@ const Switches = () => {
           }
           switchState={switches.hideInfo}
         />
-        <p>Hide details about free shipping.</p>
+        <p>Wyklucz wygenerowane komentarze</p>
       </div>
       <div className="flex gap-2 justify-center items-center">
         <Switch
@@ -29,7 +29,16 @@ const Switches = () => {
           }
           switchState={switches.hideComments}
         />
-        <p>Exclude generated comments.</p>
+        <p>Ukryj informacje o darmowej dostawie</p>
+      </div>
+      <div className="flex gap-2 justify-center items-center">
+        <Switch
+          onClick={() =>
+            setSwitches({ ...switches, hideCartInfo: !switches.hideCartInfo })
+          }
+          switchState={switches.hideCartInfo}
+        />
+        <p>Pokaż informacje o warunkach sprzedaży i polityce zwrotów w koszyku</p>
       </div>
     </div>
   );

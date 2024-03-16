@@ -18,10 +18,8 @@ function App() {
   // callOpenAPI();
   useOpenAI();
 
-
-
   React.useEffect(() => {
-    
+
     let salesInterval: NodeJS.Timeout | null = null;
     let shippingInterval: NodeJS.Timeout | null = null;
 

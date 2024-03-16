@@ -4,6 +4,7 @@ export type SwitchesFields = {
     sales: boolean;
     hideInfo: boolean;
     hideComments: boolean;
+    hideCartInfo: boolean;
   };
 };
 
@@ -12,11 +13,13 @@ interface Switches extends SwitchesFields {
     sales: boolean;
     hideInfo: boolean;
     hideComments: boolean;
+    hideCartInfo: boolean;
   };
   setSwitches: (switches: {
     sales: boolean;
     hideInfo: boolean;
     hideComments: boolean;
+    hideCartInfo: boolean;
   }) => void;
 }
 
@@ -31,6 +34,7 @@ export const useSwitchesStore = create<Switches>((set) => ({
     sales: getStorageSwitchValue('sales'),
     hideInfo: getStorageSwitchValue("hideInfo"),
     hideComments: getStorageSwitchValue("hideComments"),
+    hideCartInfo: getStorageSwitchValue("hideCartInfo"),
   },
   setSwitches: (switches) => {
     set({ switches });
