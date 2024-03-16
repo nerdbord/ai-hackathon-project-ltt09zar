@@ -20,13 +20,22 @@ interface Switches extends SwitchesFields {
   }) => void;
 }
 
+const getStorageSwitchValue = (val: string) => {
+  let valueObj = localStorage.getItem("switchesValues");
+
+  return valueObj ? JSON.parse(valueObj)[val] : false;
+}
+
 export const useSwitchesStore = create<Switches>((set) => ({
   switches: {
-    sales: false,
-    hideInfo: false,
-    hideComments: false,
+    sales: getStorageSwitchValue('sales'),
+    hideInfo: getStorageSwitchValue("hideInfo"),
+    hideComments: getStorageSwitchValue("hideComments"),
   },
-  setSwitches: (switches) => set({ switches }),
+  setSwitches: (switches) => {
+    set({ switches });
+    localStorage.setItem("switchesValues", JSON.stringify(switches));
+  },
 }));
 
 type ActiveTab = {
