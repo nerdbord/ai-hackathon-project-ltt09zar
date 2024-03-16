@@ -1,9 +1,13 @@
 const API_URL = "https://training.nerdbord.io/api/v1/openai/chat/completions";
 const API_TOKEN = import.meta.env.VITE_OPENAI_API_KEY;
 
-export const useOpenAI = () => {
-    console.log("Calling OpenAI");
-    fetch(API_URL, {
+type OpenAIRequestType = {
+    message: string;
+    option: 'irrelevant and impactful';
+}
+
+const callOpenAI = async (message: string) => {
+    const fetchResponse = fetch(API_URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -18,17 +22,30 @@ export const useOpenAI = () => {
                 },
                 {
                     role: "user",
-                    content: "Hello!",
+                    content: `Act as a shopping assistant, helping making informed purchases. ${message}`,
                 },
-            ],
+            ]
         })
-    }).then((response) => {
-        return response.json();
-    }).then((data) => {
-        console.log(data);
-        console.log(data.choices[0].message.content)
-    }).catch((error) => {
+    });
+
+    const chatResponse = await fetchResponse.then((response) => response.json())
+    .then((data) => data.choices[0].message.content)
+    .catch((error) => {
         console.log('Something bad happened');
         console.log(error);
     });
+
+    return chatResponse;
+}
+
+export const useOpenAI = async ({message, option}: OpenAIRequestType) => {
+    if (!message) {
+        return "";
+    }
+    switch(option){
+        case 'irrelevant and impactful':
+            return await callOpenAI(`Eliminate irrelevant and impactful content from the this text: ${message}`);
+        default:
+            return "";
+    }
 };
