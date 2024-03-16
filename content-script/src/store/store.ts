@@ -28,3 +28,13 @@ export const useSwitchesStore = create<Switches>((set) => ({
   },
   setSwitches: (switches) => set({ switches }),
 }));
+
+type ActiveTab = {
+  activeTab: "list" | "chat" | "switches";
+  setActiveTab: (tab: "list" | "chat" | "switches") => void;
+};
+
+export const useActiveTabStore = create<ActiveTab>((set) => ({
+  activeTab: "list",
+  setActiveTab: (activeTab) => set({ activeTab }),
+}));
