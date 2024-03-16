@@ -75,9 +75,7 @@
     @apply bg-background text-foreground;
   }
 
-  p {
-    @apply text-black dark:text-white;
-  }
+
 }
 
 .Overlay {
@@ -85,8 +83,11 @@
   z-index: 9999;
 }
 
+.Overlay p {
+  @apply text-black dark:text-white;
+}
 
-.checkbox{
+.checkbox {
   appearance: none;
   background-color: #fafafa;
   border: 1px solid #cacece;
