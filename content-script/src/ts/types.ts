@@ -1,6 +1,3 @@
-export type ActiveBookmark = {
-    bookmark: boolean;
-}
 
 export type ActiveTab = {
     activeTab: "list" | "chat" | "switches";
