@@ -1,16 +1,15 @@
-import { useActiveTabStore, useSwitchesStore } from '@/store/store';
-import React from 'react'
+import { useActiveTabStore } from '@/store/store';
 import Switches from './Switches';
 import CheckList from './CheckList';
 import Chat from './Chat';
 
 const Content = () => {
-    const { activeTab } = useActiveTabStore();
+  const { activeTab } = useActiveTabStore();
   return (
     <div className="">
-        {activeTab === "list" && <CheckList/>}
-        {activeTab === "chat" && <Chat/>}
-        {activeTab === "switches" && <Switches/>}
+      {activeTab === "list" && <CheckList />}
+      {activeTab === "chat" && <Chat />}
+      {activeTab === "switches" && <Switches />}
     </div>
   )
 }
