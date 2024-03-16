@@ -15,15 +15,6 @@ function App() {
 
   const { switches } = useSwitchesStore();
 
-<<<<<<< HEAD
-  main();
-  //tutaj sobie odpalać będziemy to co chcemy wyłączać na stronie, w switches są pola które mają state switchy i je trzeba wrzucić do locala
-  //Sprawdzamy czy jest na true i odpalamy interwal z funkcja ktora czyta z contentu i wyłącza to co chcemy
-  //w taki sam sposob mozecie ustawić więcej opcji w switches i odpalać interwale z różnymi funkcjami
-
-
-  //reszta w sumie bardzo intuicyjna jest, Overlay ma w sobie Tabs i Content, w Content mamy switchy, chat i checklist
-=======
 
   console.log("Calling API");
   // callOpenAPI();
@@ -33,13 +24,12 @@ function App() {
       Wear it every day with confidence, the titanium steel shell combined with advanced low-temperature potting technology gives the ring 3ATM and IP68 water resistance. The R02 smart ring is not only light as a feather, but extremely durable and wear-resistant. Its durability is matched by monitoring accuracy, with 20 different exercise modes that monitor real-time heart rate data as you exercise.   
       Embrace the future of smart wearables with the Smart Ring - the perfect combination of innovation, style and health consciousness.`,
     option: 'irrelevant and impactful'
-})
-  .then(res => {console.log(res)});
+  })
+    .then(res => { console.log(res) });
 
->>>>>>> 393f99e649d766a2ccb6f38811ed1798597dee3e
 
   React.useEffect(() => {
-    
+
     let salesInterval: NodeJS.Timeout | null = null;
     let shippingInterval: NodeJS.Timeout | null = null;
 
@@ -52,11 +42,7 @@ function App() {
     if (switches.hideInfo) {
       shippingInterval = setInterval(handleHideShipping, 1000);
     } else {
-<<<<<<< HEAD
-      handleShowShipping()
-=======
       handleShowShipping();
->>>>>>> 393f99e649d766a2ccb6f38811ed1798597dee3e
     }
 
     return () => {
