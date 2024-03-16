@@ -15,7 +15,7 @@ function App() {
 
   const { switches } = useSwitchesStore();
 
- main();
+  main();
 
 
   //tutaj sobie odpalać będziemy to co chcemy wyłączać na stronie, w switches są pola które mają state switchy i je trzeba wrzucić do locala
