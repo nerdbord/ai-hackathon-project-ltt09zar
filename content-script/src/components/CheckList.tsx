@@ -50,7 +50,7 @@ const CheckList = () => {
     (checkboxes.filter((checkbox) => checkbox.checked).length /
       checkboxes.length) *
     100;
-
+  console.log(progress);
   return (
     <div className="space-y-6">
       {checkboxes.map((checkbox, index) => (
@@ -64,7 +64,12 @@ const CheckList = () => {
           <p>{checkbox.label}</p>
         </div>
       ))}
-      <Progress value={progress} className="bg-white [&>*]:bg-[#66ED00]"/>
+      <Progress value={progress} className="bg-white  [&>*]:bg-gradient-to-r [&>*]:from-[#DBFF00] [&>*]:to-[#6EFF00] " />
+      {progress === 100 ? (
+        <div className="bg-gradient-to-r from-[#DBFF00] to-[#6EFF00] flex justify-center items-center w-full py-5 px-11 rounded-[94px]">
+          <span className="font-bold">Green Shopper Hero!</span>
+        </div>
+      ) : null}
     </div>
   );
 };
