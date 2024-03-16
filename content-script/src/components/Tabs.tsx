@@ -7,6 +7,8 @@ import { ReactComponent as SwitchesGreen } from "../assets/SwitchesGreen.svg";
 import { useActiveTabStore } from "@/store/store";
 const Tabs = () => {
   const { activeTab, setActiveTab } = useActiveTabStore();
+  const whiteClassName = 'w-8 h-8 opacity-50'
+  const greenClassName= ' w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5]'
   return (
     <div className="flex w-[340px] h-[73px] mx-auto justify-evenly items-center [&>*]:cursor-pointer">
       {activeTab === "list" ? (
@@ -15,10 +17,10 @@ const Tabs = () => {
         </div>
       ) : (
         <div
-          className="w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5]"
+          className={greenClassName}
           onClick={() => setActiveTab("list")}
         >
-          <ListWhite className="w-8 h-8" />
+          <ListWhite className={whiteClassName} />
         </div>
       )}
       <span className="h-full w-[1px] bg-black opacity-30"></span>
@@ -28,10 +30,10 @@ const Tabs = () => {
         </div>
       ) : (
         <div
-          className="w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5]"
+          className={greenClassName}
           onClick={() => setActiveTab("chat")}
         >
-          <ChatWhite className="w-8 h-8" />
+          <ChatWhite className={whiteClassName} />
         </div>
       )}
       <span className="h-full w-[1px] bg-black opacity-30"></span>
@@ -41,10 +43,10 @@ const Tabs = () => {
         </div>
       ) : (
         <div
-          className="w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5]"
+          className={greenClassName}
           onClick={() => setActiveTab("switches")}
         >
-          <SwitchesWhite className="w-8 h-8" />
+          <SwitchesWhite className={whiteClassName} />
         </div>
       )}
     </div>
