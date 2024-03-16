@@ -1,5 +1,4 @@
 import React from "react";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "./ui/progress";
 
 const CheckList = () => {
@@ -64,7 +63,7 @@ const CheckList = () => {
           <p>{checkbox.label}</p>
         </div>
       ))}
-      <Progress value={progress} className="bg-white"/>
+      <Progress value={progress} className="bg-white" />
     </div>
   );
 };
