@@ -1,6 +1,7 @@
 import React from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "./ui/progress";
+import Header from "./Header";
 
 const CheckList = () => {
   const [checkboxes, setCheckboxes] = React.useState([
@@ -53,6 +54,7 @@ const CheckList = () => {
   console.log(progress);
   return (
     <div className="space-y-6">
+      <Header text='Make your online shopping sustainable!' />
       {checkboxes.map((checkbox, index) => (
         <div className="flex gap-2" key={index}>
           <input
