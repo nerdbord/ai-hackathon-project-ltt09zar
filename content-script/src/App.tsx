@@ -11,7 +11,7 @@ import { handleShowSales, handleShowShipping } from "./helpers/show";
 import { useOpenAI } from "./api/main";
 
 function App() {
-  const [isOverlayVisible, setIsOverlayVisible] = React.useState<boolean>(true);
+  const [isOverlayVisible, setIsOverlayVisible] = React.useState<boolean>(false);
 
   const { switches } = useSwitchesStore();
 
