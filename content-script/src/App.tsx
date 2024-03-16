@@ -8,11 +8,15 @@ import Overlay from "./components/Overlay";
 import { useSwitchesStore } from "./store/store";
 import { handleHideSales, handleHideShipping } from "./helpers/hide";
 import { handleShowSales, handleShowShipping } from "./helpers/show";
+import { main } from "./api/main";
 
 function App() {
   const [isOverlayVisible, setIsOverlayVisible] = React.useState<boolean>(true);
 
   const { switches } = useSwitchesStore();
+
+ main();
+
 
   //tutaj sobie odpalać będziemy to co chcemy wyłączać na stronie, w switches są pola które mają state switchy i je trzeba wrzucić do locala
   //Sprawdzamy czy jest na true i odpalamy interwal z funkcja ktora czyta z contentu i wyłącza to co chcemy
