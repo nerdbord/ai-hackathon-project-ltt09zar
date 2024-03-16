@@ -15,8 +15,11 @@ const Tabs = () => {
           <ListGreen className="w-8 h-8" />
         </div>
       ) : (
-        <div className="w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5]">
-          <ListWhite className="w-8 h-8" onClick={() => setActiveTab("list")} />
+        <div
+          className="w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5]"
+          onClick={() => setActiveTab("list")}
+        >
+          <ListWhite className="w-8 h-8" />
         </div>
       )}
       <span className="h-full w-[1px] bg-black opacity-30"></span>
@@ -25,8 +28,11 @@ const Tabs = () => {
           <ChatGreen className="w-8 h-8" />
         </div>
       ) : (
-        <div className="w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5]">
-          <ChatWhite className="w-8 h-8" onClick={() => setActiveTab("chat")} />
+        <div
+          className="w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5]"
+          onClick={() => setActiveTab("chat")}
+        >
+          <ChatWhite className="w-8 h-8" />
         </div>
       )}
       <span className="h-full w-[1px] bg-black opacity-30"></span>
@@ -35,11 +41,11 @@ const Tabs = () => {
           <SwitchesGreen className="w-8 h-8" />
         </div>
       ) : (
-        <div className="w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5]">
-          <SwitchesWhite
-            className="w-8 h-8"
-            onClick={() => setActiveTab("switches")}
-          />
+        <div
+          className="w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5]"
+          onClick={() => setActiveTab("switches")}
+        >
+          <SwitchesWhite className="w-8 h-8" />
         </div>
       )}
     </div>

@@ -14,7 +14,13 @@ function App() {
 
   const { switches } = useSwitchesStore();
 
-  
+  //tutaj sobie odpalać będziemy to co chcemy wyłączać na stronie, w switches są pola które mają state switchy i je trzeba wrzucić do locala
+  //Sprawdzamy czy jest na true i odpalamy interwal z funkcja ktora czyta z contentu i wyłącza to co chcemy
+  //w taki sam sposob mozecie ustawić więcej opcji w switches i odpalać interwale z różnymi funkcjami
+
+
+  //reszta w sumie bardzo intuicyjna jest, Overlay ma w sobie Tabs i Content, w Content mamy switchy, chat i checklist
+
   React.useEffect(() => {
     let salesInterval: NodeJS.Timeout | null = null;
     let shippingInterval: NodeJS.Timeout | null = null;
