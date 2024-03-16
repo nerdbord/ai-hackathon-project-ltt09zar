@@ -1,40 +1,51 @@
-import OpenAI from "openai";
-import React from "react";
+const API_URL = "https://training.nerdbord.io/api/v1/openai/chat/completions";
+const API_TOKEN = import.meta.env.VITE_OPENAI_API_KEY;
 
-export async function useOpenAI() {
-  React.useEffect(() => {
-    const APIBody = {
-      model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "system",
-          content: "You are a helpful assistant.",
-        },
-        {
-          role: "user",
-          content: "What is the meaning of life?",
-        },
-      ],
-    };
+type OpenAIRequestType = {
+    message: string;
+    option: 'irrelevant and impactful';
+}
 
-    try {
-      fetch("https://api.openai.com/v1/chat/completions", {
+const callOpenAI = async (message: string) => {
+    const fetchResponse = fetch(API_URL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+            "Content-Type": "application/json",
+            "Authorization": API_TOKEN,
         },
-        body: JSON.stringify(APIBody),
-      })
-        .then((response) => {
-          return response.text();
+        body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [
+                {
+                    role: "system",
+                    content: "You are a helpful assistant.",
+                },
+                {
+                    role: "user",
+                    content: `Act as a shopping assistant, helping making informed purchases. ${message}`,
+                },
+            ]
         })
-        .then((data) => {
-          const jsonData = JSON.parse(data);
-          console.log("jsonData", jsonData);
-        });
-    } catch (err) {
-      console.error(err);
-    }
-  }, []);
+    });
+
+    const chatResponse = await fetchResponse.then((response) => response.json())
+    .then((data) => data.choices[0].message.content)
+    .catch((error) => {
+        console.log('Something bad happened');
+        console.log(error);
+    });
+
+    return chatResponse;
 }
+
+export const useOpenAI = async ({message, option}: OpenAIRequestType) => {
+    if (!message) {
+        return "";
+    }
+    switch(option){
+        case 'irrelevant and impactful':
+            return await callOpenAI(`Eliminate irrelevant and impactful content from the this text: ${message}`);
+        default:
+            return "";
+    }
+};
