@@ -8,24 +8,20 @@ import Overlay from "./components/Overlay";
 import { useSwitchesStore } from "./store/store";
 import { handleHideSales, handleHideShipping } from "./helpers/hide";
 import { handleShowSales, handleShowShipping } from "./helpers/show";
-import { main } from "./api/main";
+import { useOpenAI } from "./api/main";
 
 function App() {
   const [isOverlayVisible, setIsOverlayVisible] = React.useState<boolean>(true);
 
   const { switches } = useSwitchesStore();
 
- main();
+  // callOpenAPI();
+  useOpenAI();
 
 
-  //tutaj sobie odpalać będziemy to co chcemy wyłączać na stronie, w switches są pola które mają state switchy i je trzeba wrzucić do locala
-  //Sprawdzamy czy jest na true i odpalamy interwal z funkcja ktora czyta z contentu i wyłącza to co chcemy
-  //w taki sam sposob mozecie ustawić więcej opcji w switches i odpalać interwale z różnymi funkcjami
-
-
-  //reszta w sumie bardzo intuicyjna jest, Overlay ma w sobie Tabs i Content, w Content mamy switchy, chat i checklist
 
   React.useEffect(() => {
+    
     let salesInterval: NodeJS.Timeout | null = null;
     let shippingInterval: NodeJS.Timeout | null = null;
 
@@ -35,12 +31,11 @@ function App() {
       handleShowSales();
     }
 
-    if(switches.hideInfo) {
+    if (switches.hideInfo) {
       shippingInterval = setInterval(handleHideShipping, 1000);
-    }else{
-      handleShowShipping()
+    } else {
+      handleShowShipping();
     }
-
 
     return () => {
       if (salesInterval) {
