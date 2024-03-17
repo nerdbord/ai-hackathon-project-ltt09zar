@@ -1,6 +1,8 @@
 import { phrases } from "./constants";
 
 export function handleHideSales() {
+  localStorage.setItem("areDarkPatternsIncluded", JSON.stringify(false));
+
   const popupAd: HTMLElement | null = document.querySelector(
     ".drogue-poplayer-modal"
   );
@@ -43,15 +45,23 @@ export function handleHideSales() {
     annual.forEach((element) => {
       (element as HTMLElement).style.display = "none";
     });
+
+    localStorage.setItem("areDarkPatternsIncluded", JSON.stringify(true));
   }
   if (popupAd) {
     popupAd.style.display = "none";
+
+    localStorage.setItem("areDarkPatternsIncluded", JSON.stringify(true));
   }
   if (banner) {
     banner.style.display = "none";
+
+    localStorage.setItem("areDarkPatternsIncluded", JSON.stringify(true));
   }
+
   spans.forEach((element: HTMLElement) => {
     const text = element?.textContent?.trim();
+
     if (text?.includes("Extra") && text?.includes("% off with coins")) {
       element.style.display = "none";
     }
@@ -59,6 +69,7 @@ export function handleHideSales() {
 
   spans.forEach((element: HTMLElement) => {
     const text = element?.textContent?.trim();
+
     if (text?.includes("Only") && text?.includes("left")) {
       element.style.display = "none";
     }
@@ -93,5 +104,5 @@ export function handleComments() {
 export function cashbackPolicy() {
   const spans = document.querySelectorAll("span");
 
-  spans.forEach((span) => {});
+  spans.forEach((span) => { });
 }

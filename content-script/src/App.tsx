@@ -29,7 +29,6 @@ function App() {
 
 
   React.useEffect(() => {
-
     let salesInterval: NodeJS.Timeout | null = null;
     let shippingInterval: NodeJS.Timeout | null = null;
 

@@ -10,7 +10,7 @@ const DarkPattern = () => {
           Dark patterns identified!
         </h1>
       </div>
-      <p>But don't worry, with us, you can take control 😎</p>
+      <p className="text-[14px]">But don't worry, with us, you can take control 😎</p>
     </div>
   );
 };
