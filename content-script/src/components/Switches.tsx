@@ -1,19 +1,34 @@
 import { Switch } from "./ui/switch";
 import { useSwitchesStore } from "@/store/store";
 import Header from "./Header";
+import { useEffect } from "react";
+import { detectDarkPatterns } from "@/helpers/hide";
 
 const DarkPattern = () => {
-  return (
+  useEffect(() => {
+    detectDarkPatterns();
+  }, []);
+
+  return window.localStorage.getItem("areDarkPatternsIncluded") !== "true" ? (
     <div className="space-y-4">
-      <div className="w-full bg-black rounded-[94px] bg-gradient-to-r from-[#FF9900] to-[#FAFF00] py-4">
+      <div className="w-full py-4">
+        <h1 className="text-black dark:text-white text-lg font-bold text-center">
+          The site doesn’t contain dark patterns  🙌
+        </h1>
+      </div>
+    </div>
+  ) :
+    (<div className="space-y-4">
+      <div className="w-full py-4">
         <h1 className="text-black dark:text-white text-lg font-bold text-center">
           Dark patterns identified!
         </h1>
-      </div>
-      <p className="text-center">But don't worry, with us, you can take control back 😎</p>
-    </div>
-  );
+        <h1 className="text-black dark:text-white text-lg font-bold text-center">
+          But worry not, with us, you can take control  😎
+        </h1>      </div>
+    </div>)
 };
+
 const Switches = () => {
   const { switches, setSwitches } = useSwitchesStore();
   return (

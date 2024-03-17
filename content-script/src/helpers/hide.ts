@@ -2,6 +2,15 @@
 import { phrases } from "./constants";
 
 export function handleHideSales() {
+  let salesFound = false;
+  const getFirstPattern = () => {
+    if (!salesFound) {
+      salesFound = true;
+      localStorage.setItem("areDarkPatternsIncluded", JSON.stringify(true));
+    }
+    return;
+  }
+
   const popupAd: HTMLElement | null = document.querySelector(
     ".drogue-poplayer-modal"
   );
@@ -30,66 +39,101 @@ export function handleHideSales() {
   if (choice) {
     choice.style.setProperty('display', 'none', 'important');
   }
- 
+
   if (annual) {
     annual.forEach((element) => {
       (element as HTMLElement).style.display = "none";
+      getFirstPattern()
     });
   }
   if (popupAd) {
     popupAd.style.display = "none";
+    getFirstPattern()
   }
   if (banner) {
     banner.style.display = "none";
+    getFirstPattern()
   }
+
   spans.forEach((element: HTMLElement) => {
     const text = element?.textContent?.trim();
+
     if (text?.includes("Extra") && text?.includes("% off with coins")) {
       element.style.display = "none";
+      getFirstPattern()
     }
   });
 
   spans.forEach((element: HTMLElement) => {
     const text = element?.textContent?.trim();
+
     if (text?.includes("Only") && text?.includes("left")) {
       element.style.display = "none";
+      getFirstPattern()
     }
   });
 
   rc_modules.forEach((element) => {
     (element as HTMLElement).style.display = "none";
+    getFirstPattern()
   });
 
   base_card_discount.forEach((element) => {
     (element as HTMLElement).style.display = "none";
+    getFirstPattern()
   });
   rax_text.forEach((element) => {
     (element as HTMLElement).style.display = "none";
+    getFirstPattern()
   });
   rax_view.forEach((element) => {
     (element as HTMLElement).style.display = "none";
+    getFirstPattern()
   });
 }
 
 export function handleHideShipping() {
   const spans = document.querySelectorAll("span");
+  let isShipping = false;
 
   spans.forEach((span) => {
     const text = span?.textContent?.trim().toLowerCase();
     if (phrases.some((phrase) => text?.includes(phrase.toLowerCase()))) {
       span.style.display = "none";
+
+      if (!isShipping) {
+        isShipping = true;
+        localStorage.setItem("areDarkPatternsIncluded", JSON.stringify(true));
+      }
     }
   });
 }
 
 // TODO: ogarnac to przez AI
 export function handleComments() {
-  const comment = document.querySelectorAll(".ae-evaluateList-card-content");
+  let commentFound = false;
+  const comments = document.querySelectorAll(".ae-evaluateList-card-content");
+
+  comments.forEach((element) => {
+    (element as HTMLElement).style.display = "none";
+
+    if (!commentFound) {
+      commentFound = true;
+      localStorage.setItem("areDarkPatternsIncluded", JSON.stringify(true));
+    }
+  });
 }
 
 // TODO: przemyslec
-export function cashbackPolicy() {
-  const spans = document.querySelectorAll("span");
+// export function cashbackPolicy() {
+//   const spans = document.querySelectorAll("span");
+//   spans.forEach((span) => { });
+// }
 
-  spans.forEach((span) => {});
+export function detectDarkPatterns() {
+  localStorage.setItem("areDarkPatternsIncluded", JSON.stringify(false));
+
+  handleHideSales();
+  handleHideShipping();
+  handleComments();
 }
