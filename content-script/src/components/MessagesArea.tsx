@@ -1,11 +1,6 @@
-import React from "react";
 import Messages from "./Messages";
 import ChatInput from "./ChatInput";
-
-type MessagesAreaPops = {
-  addMessage: (question: string) => void;
-  messages: string[];
-}
+import { MessagesAreaPops } from "@/ts/types";
 
 const MessagesArea = ({ addMessage, messages }: MessagesAreaPops) => {
   return (

@@ -1,3 +1,8 @@
+import { Dispatch, SetStateAction } from "react";
+
+export type ChatInputProps = {
+    addMessage: (question: string) => void;
+}
 
 export type ActiveTab = {
     activeTab: "list" | "chat" | "switches";
@@ -16,3 +21,25 @@ export type OverlayIconProps = {
     isOverlayVisible: boolean;
     setIsOverlayVisible: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+export type MessagesProps = {
+    messages: string[];
+}
+
+export type HeaderProps = {
+    text?: string;
+    pattern?: JSX.Element;
+};
+
+export type MessagesAreaPops = {
+    addMessage: (question: string) => void;
+    messages: string[];
+}
+
+export type PopupProps = {
+    setVisibility: Dispatch<SetStateAction<boolean>>;
+};
+
+export type QuestionsProps = {
+    addQuestion: (question: string) => void;
+}

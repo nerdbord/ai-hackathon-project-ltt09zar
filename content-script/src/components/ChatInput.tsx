@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { ReactComponent as Send } from "../assets/SendSVG.svg";
-
-type ChatInputProps = {
-  addMessage: (question: string) => void;
-}
+import { ChatInputProps } from "@/ts/types";
 
 const ChatInput = ({ addMessage }: ChatInputProps) => {
   const [typedMessage, setTypedMessage] = useState<string>("");
