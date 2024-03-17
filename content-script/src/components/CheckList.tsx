@@ -57,6 +57,7 @@ const CheckList = () => {
     <div className="space-y-6">
       {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
       <Header text='Make your online shopping sustainable!' />
+      <p className="text-darkGray">Check out the key criterias and see if you are a Green Shopper Hero</p>
       {checkboxes.map((checkbox, index) => (
         <div key={index}>
           <label className="flex gap-2 items-center text-black dark:text-white">
