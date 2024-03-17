@@ -8,8 +8,6 @@ const body = document.querySelector("body");
 
 const app = document.createElement("div");
 
-app.id = "root";
-
 // Make sure the element that you want to mount the app to has loaded. You can
 // also use `append` or insert the app using another method:
 // https://developer.mozilla.org/en-US/docs/Web/API/Element#methods
@@ -27,7 +25,6 @@ link.rel = 'stylesheet';
 document.head.appendChild(link);
 
 
-const container = document.getElementById("root");
-const root = createRoot(container!);
+const root = createRoot(app!);
 
 root.render(<App />);
