@@ -1,5 +1,6 @@
 // Filename - Components/Switcher.js
 
+import { useDarkSideStore } from "@/store/store";
 import useDarkSide from "./useDarkSide";
 import React, { useState } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
@@ -10,7 +11,10 @@ export default function Switcher() {
         colorTheme === "light" ? true : false
     );
 
+    const {setThemeStore } = useDarkSideStore()
+
     const toggleDarkMode = (checked: boolean) => {
+        setThemeStore(colorTheme)
         setTheme(colorTheme);
         setDarkSide(checked);
     };

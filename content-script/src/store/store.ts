@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import Switches from "@/ts/interfaces";
-import { ActiveTab } from "@/ts/types"
+import { ActiveTab, DarkSideProps } from "@/ts/types"
 
 const getStorageSwitchValue = (objectKey: string, property: string) => {
   let valueObj = localStorage.getItem(objectKey);
@@ -24,4 +24,10 @@ export const useSwitchesStore = create<Switches>((set) => ({
 export const useActiveTabStore = create<ActiveTab>((set) => ({
   activeTab: "list",
   setActiveTab: (activeTab) => set({ activeTab }),
+}));
+
+
+export const useDarkSideStore = create<DarkSideProps>((set) => ({
+  themeStore: "light",
+  setThemeStore: (themeStore) => set({ themeStore }),
 }));
