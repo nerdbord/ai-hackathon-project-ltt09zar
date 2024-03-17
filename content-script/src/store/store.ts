@@ -5,7 +5,7 @@ import { ActiveTab } from "@/ts/types"
 const getStorageSwitchValue = (objectKey: string, property: string) => {
   let valueObj = localStorage.getItem(objectKey);
 
-  return valueObj ? JSON.parse(valueObj)[property] : false;
+  return valueObj ? JSON.parse(valueObj)[property] : true;
 }
 
 export const useSwitchesStore = create<Switches>((set) => ({

@@ -1,4 +1,4 @@
-const API_URL = "https://api.openai.com/v1/chat/completions";
+const API_URL = "https://training.nerdbord.io/api/v1/openai/chat/completions";
 const API_TOKEN = import.meta.env.VITE_OPENAI_API_KEY;
 
 type OpenAIRequestType = {

@@ -11,34 +11,19 @@ export function handleShowSales() {
   const spans = document.querySelectorAll("span");
   const rc_modules = document.querySelectorAll('[class^="rc-modules--text"]');
   const base_card_discount = document.querySelectorAll('[class^="base-card--discount"]')
-  // const vertical_big_card: HTMLElement | null = document.querySelector(
-  //   '[class^="vertical-big-card"]'
-  // );
-  // const horizontal_big_card: HTMLElement | null = document.querySelector(
-  //   '["class^="horizontal-big-card"]'
-  // );
-  // const horizontal_small_card: HTMLElement | null = document.querySelector(
-  //   '["class^="horizontal-small-card"]'
-  // );
-  // const vertical_normal_card: HTMLElement | null = document.querySelector(
-  //   '["class^="vertical-normal-card"]'
-  // );
+  const row: HTMLElement | null = document.querySelector('div[data-component-id="5801448"]');
+  const top_img: HTMLElement | null = document.querySelector('.pc2023-site-info--site-image--kWOv6EV');
+  const choice: HTMLElement | null = document.querySelector('.af2023-choice-slider--titleWrap--2ozVNsy');
 
-  // if (vertical_big_card) {
-  //   vertical_big_card.style.display = "block";
-  // }
-  // if (horizontal_big_card) {
-  //   horizontal_big_card.style.display = "block";
-  // }
-  // if (horizontal_small_card) {
-  //   horizontal_small_card.style.display = "block";
-  // }
-  // if (vertical_normal_card) {
-  //   vertical_normal_card.style.display = "block";
-  // }
-
-
-
+  if (row) {
+    row.style.setProperty('display', 'block', 'important');
+  }
+  if (top_img) {
+    top_img.style.setProperty('display', 'block', 'important');
+  }
+  if (choice) {
+    choice.style.setProperty('display', 'block', 'important');
+  }
 
   if (annual) {
     annual.forEach((element) => {
