@@ -1,10 +1,7 @@
-import React from "react";
 import { ReactComponent as Icon } from "../assets/Sygnet(64x64).svg";
 import { X } from "lucide-react";
-type OverlayIconProps = {
-  isOverlayVisible: boolean;
-  setIsOverlayVisible: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import { OverlayIconProps } from "@/ts/types";
+
 const OverlayIcon = ({
   setIsOverlayVisible,
   isOverlayVisible,

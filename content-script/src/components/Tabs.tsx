@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as ChatWhite } from "../assets/ChatWhite.svg";
 import { ReactComponent as ListWhite } from "../assets/ListWhite.svg";
 import { ReactComponent as SwitchesWhite } from "../assets/SwitchesWhite.svg";

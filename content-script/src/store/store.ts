@@ -1,47 +1,25 @@
 import { create } from "zustand";
-export type SwitchesFields = {
-  switches: {
-    sales: boolean;
-    hideInfo: boolean;
-    hideComments: boolean;
-  };
-};
+import Switches from "@/ts/interfaces";
+import { ActiveTab } from "@/ts/types"
 
-interface Switches extends SwitchesFields {
-  switches: {
-    sales: boolean;
-    hideInfo: boolean;
-    hideComments: boolean;
-  };
-  setSwitches: (switches: {
-    sales: boolean;
-    hideInfo: boolean;
-    hideComments: boolean;
-  }) => void;
-}
+const getStorageSwitchValue = (objectKey: string, property: string) => {
+  let valueObj = localStorage.getItem(objectKey);
 
-const getStorageSwitchValue = (val: string) => {
-  let valueObj = localStorage.getItem("switchesValues");
-
-  return valueObj ? JSON.parse(valueObj)[val] : false;
+  return valueObj ? JSON.parse(valueObj)[property] : false;
 }
 
 export const useSwitchesStore = create<Switches>((set) => ({
   switches: {
-    sales: getStorageSwitchValue('sales'),
-    hideInfo: getStorageSwitchValue("hideInfo"),
-    hideComments: getStorageSwitchValue("hideComments"),
+    sales: getStorageSwitchValue('switchValues', 'sales'),
+    hideInfo: getStorageSwitchValue('switchValues', "hideInfo"),
+    hideComments: getStorageSwitchValue('switchValues', "hideComments"),
   },
+
   setSwitches: (switches) => {
     set({ switches });
     localStorage.setItem("switchesValues", JSON.stringify(switches));
   },
 }));
-
-type ActiveTab = {
-  activeTab: "list" | "chat" | "switches";
-  setActiveTab: (tab: "list" | "chat" | "switches") => void;
-};
 
 export const useActiveTabStore = create<ActiveTab>((set) => ({
   activeTab: "list",

@@ -24,12 +24,12 @@ function App() {
       Wear it every day with confidence, the titanium steel shell combined with advanced low-temperature potting technology gives the ring 3ATM and IP68 water resistance. The R02 smart ring is not only light as a feather, but extremely durable and wear-resistant. Its durability is matched by monitoring accuracy, with 20 different exercise modes that monitor real-time heart rate data as you exercise.   
       Embrace the future of smart wearables with the Smart Ring - the perfect combination of innovation, style and health consciousness.`,
     option: 'irrelevant and impactful'
-})
-  .then(res => {console.log(res)});
+  })
+    .then(res => { console.log(res) });
 
 
   React.useEffect(() => {
-    
+
     let salesInterval: NodeJS.Timeout | null = null;
     let shippingInterval: NodeJS.Timeout | null = null;
 

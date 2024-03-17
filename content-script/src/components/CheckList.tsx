@@ -1,5 +1,4 @@
 import React from "react";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "./ui/progress";
 import Header from "./Header";
 
@@ -66,12 +65,16 @@ const CheckList = () => {
           <p>{checkbox.label}</p>
         </div>
       ))}
+<<<<<<< HEAD
+      <Progress value={progress} className="bg-white" />
+=======
       <Progress value={progress} className="bg-white  [&>*]:bg-gradient-to-r [&>*]:from-[#DBFF00] [&>*]:to-[#6EFF00] " />
       {progress === 100 ? (
         <div className="bg-gradient-to-r from-[#DBFF00] to-[#6EFF00] flex justify-center items-center w-full py-5 px-11 rounded-[94px]">
           <span className="font-bold">Green Shopper Hero!</span>
         </div>
       ) : null}
+>>>>>>> 393f99e649d766a2ccb6f38811ed1798597dee3e
     </div>
   );
 };
