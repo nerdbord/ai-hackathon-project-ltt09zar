@@ -1,9 +1,17 @@
 import React from 'react'
 
-const Messages = () => {
-  return (
-    <div className=" h-full w-full">Messages</div>
-  )
+type MessagesProps = {
+  messages: string[];
 }
 
-export default Messages
+const Messages = ({ messages }: MessagesProps) => {
+  return (
+    <div className=" h-full w-full overflow-y-scroll p-8">
+      {messages.map((message) => 
+        <p className="mb-2 text-black">{message}</p>
+      )}
+    </div>
+  );
+}
+
+export default Messages;

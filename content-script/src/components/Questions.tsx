@@ -1,29 +1,30 @@
 import React from "react";
 
-const Questions = () => {
+type QuestionsProps = {
+  addQuestion: (question: string) => void;
+}
+
+const Questions = ({ addQuestion }: QuestionsProps) => {
   const questions = [
-    {
-      text: "What country is the product from?",
-      isChecked: false,
-    },
-    {
-      text: "What country is the product from?",
-      isChecked: false,
-    },
-    {
-      text: "What country is the product from?",
-      isChecked: false,
-    },
+    "What country is the product from?",
+    "Tell me more about this product.",
+    "Do I need this product?",
   ];
   return (
-    <div className="w-full space-y-2 mt-2">
-      {questions.map((question, index) => (
-        <div key={index} className="flex justify-between items-center px-2 py-3 border-[1px] border-gray-300">
-          <label className="font-bold">{question.text}</label>
-          <input type="checkbox" checked={question.isChecked} />
-        </div>
+    <ul className="w-full space-y-2 mt-2">
+      {questions.map((question) => (
+        <li key={question}>
+            <button
+              className="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+              onClick={() => addQuestion(question)}
+              >                           
+                <div className="block">
+                    <div className="w-full text-sm">{question}</div>
+                </div>
+            </button>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
