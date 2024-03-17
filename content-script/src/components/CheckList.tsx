@@ -55,14 +55,15 @@ const CheckList = () => {
     <div className="space-y-6">
       <Header text='Make your online shopping sustainable!' />
       {checkboxes.map((checkbox, index) => (
-        <div className="flex gap-2" key={index}>
-          <input
-            className="border-[1px] border-black w-8 h-8 bg-white flex-shrink-0 rounded-sm checkbox  "
-            checked={checkbox.checked}
-            type="checkbox"
-            onChange={() => handleCheckboxChange(index)}
-          />
-          <p>{checkbox.label}</p>
+        <div key={index}>
+          <label className="flex gap-2 text-black dark:text-white">
+            <input
+              className="border-[1px] border-black w-8 h-8 bg-white flex-shrink-0 rounded-sm checkbox  "
+              checked={checkbox.checked}
+              type="checkbox"
+              onChange={() => handleCheckboxChange(index)}
+            />
+            {checkbox.label}</label>
         </div>
       ))}
       <Progress value={progress} className="bg-white  [&>*]:bg-gradient-to-r [&>*]:from-[#DBFF00] [&>*]:to-[#6EFF00] " />

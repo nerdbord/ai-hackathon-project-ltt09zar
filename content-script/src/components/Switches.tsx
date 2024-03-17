@@ -6,7 +6,7 @@ const DarkPattern = () => {
   return (
     <div className="space-y-4">
       <div className="w-full bg-black rounded-[94px] bg-gradient-to-r from-[#FF9900] to-[#FAFF00] py-4">
-        <h1 className="text-lg font-bold text-center">
+        <h1 className="text-black dark:text-white text-lg font-bold text-center">
           Dark patterns identified!
         </h1>
       </div>

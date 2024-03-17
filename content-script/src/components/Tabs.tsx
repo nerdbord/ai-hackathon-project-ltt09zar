@@ -28,10 +28,10 @@ const Tabs = () => {
       )}
       <span className="h-full w-[1px] bg-black dark:bg-white opacity-30"></span>
       {activeTab === "chat" ? (
-        <div className="w-[70px] h-[70px] flex justify-center items-center flex-col ">
+        <div className="w-[70px] h-[70px] flex justify-center items-center flex-col">
           <ChatGreen className="w-8 h-8" />
 
-          <p>Setting</p>
+          <p>Chat</p>
         </div>
       ) : (
         <div
@@ -45,6 +45,8 @@ const Tabs = () => {
       {activeTab === "switches" ? (
         <div className="w-[70px] h-[70px] flex justify-center items-center flex-col">
           <SwitchesGreen className="w-8 h-8" />
+
+          <p>Setting</p>
         </div>
       ) : (
         <div
