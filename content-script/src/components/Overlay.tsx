@@ -16,13 +16,14 @@ const Overlay = () => {
 
       <div className="w-full flex justify-between mt-4 text-black dark:text-white underline">
         <Switcher />
-        <span
+        <button
+        type="button"
           onClick={() => {
             setVisibility((prev) => !prev);
           }}
         >
           Don't click here
-        </span>{" "}
+        </button>
       </div>
     </div>
   ) : (

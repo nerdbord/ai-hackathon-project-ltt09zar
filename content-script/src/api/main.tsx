@@ -38,15 +38,12 @@ const callOpenAI = async (message: string) => {
     return chatResponse;
 }
 
-export const askOpenAI = async (question: string) => {
+export const askOpenAI = async (question: string, productName: string) => {
     if (!question) {
         return "I'm sorry, but you didn't ask anything."
     }
 
-    // TODO: Replace this example with scrapped title of the product
-    const productInfo = "Cukierki Elvan Toffix z nadzieniem owocowym 1000 g";
-
-    return await callOpenAI(`${question} Product: ${productInfo}. Answer in max two sentences.`);
+    return await callOpenAI(`${question} Product: ${productName}. Answer in max two sentences.`);
 }
 
 export const useOpenAI = async ({ message, option }: OpenAIRequestType) => {

@@ -3,13 +3,15 @@ import Questions from "./Questions";
 import Header from "./Header";
 import MessagesArea from "./MessagesArea";
 import { askOpenAI } from "@/api/main";
+import { useProductName } from "@/hooks/useProductName";
 
 const Chat = () => {
   const [messages, setMessages] = useState<string[]>([]);
+  const { productName } = useProductName();
 
   const addMessage = (question: string) => {
     setMessages((prevMessagesArray) => [...prevMessagesArray, question]);
-    askOpenAI(question).then((response) => {
+    askOpenAI(question, productName).then((response) => {
       if(response){
         setMessages((prevMessagesArray) => [...prevMessagesArray, response]);
       }
