@@ -1,25 +1,8 @@
 import { Progress } from "./ui/progress";
 import Header from "./Header";
-import React, { useEffect, useState } from 'react';
-// import { fetchFromWebOrCache } from '../scraper/scraper';
+import React from 'react';
 
 const CheckList = () => {
-  // const [html, setHtml] = useState('');
-
-  // useEffect(() => {
-  //   const manipulateHTML = async () => {
-  //     const document = await fetchFromWebOrCache(window.location.href);
-  //     // Manipulate the HTML here
-  //     // For example, you can use querySelectorAll to select all elements with a specific class name
-  //     // and then modify their text content
-  //     const elements = document.querySelectorAll('.example-class');
-  //     elements.forEach((element) => {
-  //       element.textContent = 'Modified text';
-  //     });
-  //     setHtml(document.documentElement.outerHTML);
-  //   };
-  //   manipulateHTML();
-  // }, []);
 
   const [checkboxes, setCheckboxes] = React.useState([
     {
@@ -88,7 +71,7 @@ const CheckList = () => {
       ))}
       <Progress value={progress} className="bg-white  [&>*]:bg-gradient-to-r [&>*]:from-[#DBFF00] [&>*]:to-[#6EFF00] " />
       {progress === 100 ? (
-        <div className="bg-gradient-to-r from-[#DBFF00] to-[#6EFF00] flex justify-center items-center w-full py-5 px-11 rounded-[94px]">
+        <div className="flex justify-center items-center w-full py-5 px-11 ">
           <span className="font-bold">Green Shopper Hero!</span>
         </div>
       ) : null}
