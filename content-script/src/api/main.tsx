@@ -29,17 +29,17 @@ const callOpenAI = async (message: string) => {
     });
 
     const chatResponse = await fetchResponse.then((response) => response.json())
-    .then((data) => data.choices[0].message.content)
-    .catch((error) => {
-        console.log('Something bad happened');
-        console.log(error);
-    });
+        .then((data) => data.choices[0].message.content)
+        .catch((error) => {
+            console.log('Something bad happened');
+            console.log(error);
+        });
 
     return chatResponse;
 }
 
 export const askOpenAI = async (question: string) => {
-    if(!question) {
+    if (!question) {
         return "I'm sorry, but you didn't ask anything."
     }
 
@@ -49,11 +49,11 @@ export const askOpenAI = async (question: string) => {
     return await callOpenAI(`${question} Product: ${productInfo}. Answer in max two sentences.`);
 }
 
-export const useOpenAI = async ({message, option}: OpenAIRequestType) => {
+export const useOpenAI = async ({ message, option }: OpenAIRequestType) => {
     if (!message) {
         return "";
     }
-    switch(option){
+    switch (option) {
         case 'irrelevant and impactful':
             return await callOpenAI(`Eliminate irrelevant and impactful content from the this text: ${message}`);
         default:

@@ -28,6 +28,7 @@ const Switch = React.forwardRef<
       {switchState && <Check className="block text-[#24A148] dark:text-white h-4 w-4" />}
     </SwitchPrimitives.Thumb>
   </SwitchPrimitives.Root>
+
 ));
 Switch.displayName = SwitchPrimitives.Root.displayName;
 
