@@ -107,3 +107,7 @@
   transform: translate(-50%, -50%);
   color: #66ED00;
 }
+
+.popup{
+  margin: 0!important;
+}
