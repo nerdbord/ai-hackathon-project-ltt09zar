@@ -1,8 +1,5 @@
-import React, { Dispatch, SetStateAction } from "react";
+import { PopupProps } from "@/ts/types";
 
-type PopupProps = {
-  setVisibility: Dispatch<SetStateAction<boolean>>;
-};
 const Popup = ({ setVisibility }: PopupProps) => {
   return (
     <div className="top-0 left-0 h-full w-[380px] absolute bg-white dark:bg-darkGray  z-50 flex px-6 justify-center items-center popup">
@@ -20,7 +17,7 @@ const Popup = ({ setVisibility }: PopupProps) => {
         </div>
       </div>
 
-      <span className="absolute bottom-5 left-50 translate-x-1/2 cursor-pointer text-darkGray dark:text-white" onClick={() => setVisibility(prev=>!prev)}>
+      <span className="absolute bottom-5 left-50 translate-x-1/2 cursor-pointer text-darkGray dark:text-white" onClick={() => setVisibility(prev => !prev)}>
         Cancel X
       </span>
     </div>

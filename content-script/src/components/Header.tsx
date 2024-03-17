@@ -1,9 +1,4 @@
-import React from "react";
-
-type HeaderProps = {
-  text?: string;
-  pattern?: JSX.Element;
-};
+import { HeaderProps } from "@/ts/types";
 
 const Header = ({ text, pattern }: HeaderProps) => {
   return (
