@@ -16,14 +16,14 @@ const Overlay = () => {
       <Tabs />
       <Content />
 
-      <a className="sticky bottom-2 right-2 text-black dark:text-white" target="_blank" onClick={() => {
-        setVisibility(!isPopupVisible)
+      <a className="w-full flex justify-end mt-4 text-black dark:text-white" target="_blank" onClick={() => {
+        setVisibility(prev => !prev)
       }}>
-        Dont click there</a>
+        Don't click there</a>
     </div>
   ) :
     <div className="bottom-0 overflow-y-auto overflow-x-hidden right-0 h-[100dvh] w-[380px] Overlay bg-white py-6 space-y-8 pr-4 pl-8 relative">
-      <Popup />
+      <Popup setVisibility={setVisibility}/>
     </div>;
 };
 
