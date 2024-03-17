@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Questions from "./Questions";
 import Header from "./Header";
 import MessagesArea from "./MessagesArea";
+import { askOpenAI } from "@/api/main";
 
 const Chat = () => {
+  const [messages, setMessages] = useState<string[]>([]);
+
+  const addMessage = (question: string) => {
+    setMessages((prevMessagesArray) => [...prevMessagesArray, question]);
+    askOpenAI(question).then((response) => {
+      if(response){
+        setMessages((prevMessagesArray) => [...prevMessagesArray, response]);
+      }
+    });
+  };
+
   return (
     <div className="space-y-4">
       <Header text="It's important to know the answers to these questions:" />
-      <Questions />
-      <MessagesArea />
+      <Questions addQuestion={addMessage} />
+      <MessagesArea messages={messages} addMessage={addMessage} />
     </div>
   );
 };
