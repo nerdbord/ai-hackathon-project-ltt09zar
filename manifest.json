@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "ClearFlow",
+  "version": "1.0.0",
+ 
+  "icons": {},
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["content-script/src/main.tsx"],
+      "media": [],
+      "css": ["output.css"]
+    }
+  ]
+}
