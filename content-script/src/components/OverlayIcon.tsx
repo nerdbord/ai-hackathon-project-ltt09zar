@@ -14,7 +14,7 @@ const OverlayIcon = ({
       onClick={() => setIsOverlayVisible((prev) => !prev)}
     />
   ) : (
-    <div className={`right-[400px] ${className} rounded-full text-[#F2F2F2] bg-black flex justify-center items-center`}>
+    <div className={`right-[400px] ${className} rounded-full text-[#F2F2F2] dark:text-white bg-black dark:bg-[#232428] flex justify-center items-center`}>
       <X
         className="w-8 h-8"
         onClick={() => setIsOverlayVisible((prev) => !prev)}
