@@ -9,22 +9,27 @@ const Overlay = () => {
 
   return !isPopupVisible ? (
     <div className="bottom-0 overflow-y-auto overflow-x-hidden right-0 h-[100dvh] w-[380px] bg-[#F2F2F2] dark:bg-[#232428] Overlay py-6 space-y-8 pr-4 pl-8 relative">
-      <span className="absolute top-6 left-2 z-9">
-        <Switcher />
-      </span>
+      <span className="absolute top-6 left-2 z-9"></span>
 
       <Tabs />
       <Content />
 
-      <a className="w-full flex justify-end mt-4 text-black dark:text-white" target="_blank" onClick={() => {
-        setVisibility(prev => !prev)
-      }}>
-        Don't click there</a>
+      <div className="w-full flex justify-between mt-4 text-black dark:text-white underline">
+        <Switcher />
+        <span
+          onClick={() => {
+            setVisibility((prev) => !prev);
+          }}
+        >
+          Don't click here
+        </span>{" "}
+      </div>
     </div>
-  ) :
+  ) : (
     <div className="bottom-0 overflow-y-auto overflow-x-hidden right-0 h-[100dvh] w-[380px] Overlay bg-white py-6 space-y-8 pr-4 pl-8 relative">
-      <Popup setVisibility={setVisibility}/>
-    </div>;
+      <Popup setVisibility={setVisibility} />
+    </div>
+  );
 };
 
 export default Overlay;
