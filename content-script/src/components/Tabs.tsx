@@ -2,9 +2,12 @@ import { ReactComponent as ChatWhite } from "../assets/ChatWhite.svg";
 import { ReactComponent as ListWhite } from "../assets/ListWhite.svg";
 import { ReactComponent as SwitchesWhite } from "../assets/SwitchesWhite.svg";
 import { ReactComponent as ChatGreen } from "../assets/ChatGreen.svg";
+import { ReactComponent as ChatGreenDark } from "../assets/ChatGreenDark.svg";
 import { ReactComponent as ListGreen } from "../assets/ListGreen.svg";
 import { ReactComponent as SwitchesGreen } from "../assets/SwitchesGreen.svg";
-import { useActiveTabStore } from "@/store/store";
+import { ReactComponent as SwitchesGreenDark } from "../assets/SwitchesGreenDark.svg";
+import { ReactComponent as ListGreenDark } from "../assets/ListGreenDark.svg";
+import { useActiveTabStore, useDarkSideStore } from "@/store/store";
 
 const Tabs = () => {
   const { activeTab, setActiveTab } = useActiveTabStore();
@@ -21,10 +24,7 @@ const Tabs = () => {
           <p>Check list</p>
         </div>
       ) : (
-        <div
-          className={greenClassName}
-          onClick={() => setActiveTab("list")}
-        >
+        <div className={greenClassName} onClick={() => setActiveTab("list")}>
           <ListWhite className={whiteClassName} />
         </div>
       )}
@@ -36,10 +36,7 @@ const Tabs = () => {
           <p>Chat</p>
         </div>
       ) : (
-        <div
-          className={greenClassName}
-          onClick={() => setActiveTab("chat")}
-        >
+        <div className={greenClassName} onClick={() => setActiveTab("chat")}>
           <ChatWhite className={whiteClassName} />
         </div>
       )}

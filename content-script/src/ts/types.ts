@@ -43,3 +43,8 @@ export type PopupProps = {
 export type QuestionsProps = {
     addQuestion: (question: string) => void;
 }
+
+export type DarkSideProps = {
+    themeStore: 'light' | 'dark';
+    setThemeStore: (themeStore: 'light' | 'dark') => void;
+}

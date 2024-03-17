@@ -1,4 +1,4 @@
-import { filterComments } from "./comments";
+
 import { phrases } from "./constants";
 
 export function handleHideSales() {
@@ -29,7 +29,7 @@ export function handleHideSales() {
     '[class^="base-card--discount"]'
   );
 
-  filterComments()
+
   if (row) {
     row.style.setProperty('display', 'none', 'important');
   }
