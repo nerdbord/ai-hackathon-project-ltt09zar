@@ -9,7 +9,42 @@ export function handleShowSales() {
   );
   const annual = document.querySelectorAll('[class^="rc-modules--img"]');
   const spans = document.querySelectorAll("span");
+  const rc_modules = document.querySelectorAll('[class^="rc-modules--text"]');
+  const base_card_discount = document.querySelectorAll('[class^="base-card--discount"]')
+  // const vertical_big_card: HTMLElement | null = document.querySelector(
+  //   '[class^="vertical-big-card"]'
+  // );
+  // const horizontal_big_card: HTMLElement | null = document.querySelector(
+  //   '["class^="horizontal-big-card"]'
+  // );
+  // const horizontal_small_card: HTMLElement | null = document.querySelector(
+  //   '["class^="horizontal-small-card"]'
+  // );
+  // const vertical_normal_card: HTMLElement | null = document.querySelector(
+  //   '["class^="vertical-normal-card"]'
+  // );
 
+  // if (vertical_big_card) {
+  //   vertical_big_card.style.display = "block";
+  // }
+  // if (horizontal_big_card) {
+  //   horizontal_big_card.style.display = "block";
+  // }
+  // if (horizontal_small_card) {
+  //   horizontal_small_card.style.display = "block";
+  // }
+  // if (vertical_normal_card) {
+  //   vertical_normal_card.style.display = "block";
+  // }
+
+
+
+
+  if (annual) {
+    annual.forEach((element) => {
+      (element as HTMLElement).style.display = "block";
+    });
+  }
   if (popupAd) {
     popupAd.style.display = "block";
   }
@@ -25,6 +60,12 @@ export function handleShowSales() {
   });
 
   annual.forEach((element) => {
+    (element as HTMLElement).style.display = "block";
+  });
+  rc_modules.forEach((element) => {
+    (element as HTMLElement).style.display = "block";
+  });
+  base_card_discount.forEach((element) => {
     (element as HTMLElement).style.display = "block";
   });
 }
