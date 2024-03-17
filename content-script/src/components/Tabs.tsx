@@ -8,12 +8,14 @@ import { useActiveTabStore } from "@/store/store";
 
 const Tabs = () => {
   const { activeTab, setActiveTab } = useActiveTabStore();
-  const whiteClassName = 'w-8 h-8 opacity-50'
-  const greenClassName = ' w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5]'
+
+  const whiteClassName = 'w-8 h-8 opacity-50 dark:bg-[#2e3035] dark:rounded-sm'
+  const greenClassName = 'w-[70px] h-[70px] flex justify-center items-center hover:bg-[#E5E5E5] dark:bg-[#2e3035] dark:rounded-sm'
+
   return (
     <div className="flex w-[340px] h-[73px] mx-auto justify-evenly items-center [&>*]:cursor-pointer">
       {activeTab === "list" ? (
-        <div className="w-[70px] h-[70px] flex justify-center items-center flex-col">
+        <div className="w-[70px] h-[70px] flex justify-center items-center flex-col dark:bg-[#2e3035] dark:rounded-sm">
           <ListGreen className="w-8 h-8" />
 
           <p>Check list</p>
@@ -28,7 +30,7 @@ const Tabs = () => {
       )}
       <span className="h-full w-[1px] bg-black dark:bg-white opacity-30"></span>
       {activeTab === "chat" ? (
-        <div className="w-[70px] h-[70px] flex justify-center items-center flex-col">
+        <div className="w-[70px] h-[70px] flex justify-center items-center flex-col dark:bg-[#2e3035] dark:rounded-sm">
           <ChatGreen className="w-8 h-8" />
 
           <p>Chat</p>
@@ -43,7 +45,7 @@ const Tabs = () => {
       )}
       <span className="h-full w-[1px] bg-black dark:bg-white opacity-30"></span>
       {activeTab === "switches" ? (
-        <div className="w-[70px] h-[70px] flex justify-center items-center flex-col">
+        <div className="w-[70px] h-[70px] flex justify-center items-center flex-col dark:bg-[#2e3035] dark:rounded-sm">
           <SwitchesGreen className="w-8 h-8" />
 
           <p>Setting</p>

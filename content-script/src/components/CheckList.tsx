@@ -1,8 +1,26 @@
-import React from "react";
 import { Progress } from "./ui/progress";
 import Header from "./Header";
+import React, { useEffect, useState } from 'react';
+// import { fetchFromWebOrCache } from '../scraper/scraper';
 
 const CheckList = () => {
+  // const [html, setHtml] = useState('');
+
+  // useEffect(() => {
+  //   const manipulateHTML = async () => {
+  //     const document = await fetchFromWebOrCache(window.location.href);
+  //     // Manipulate the HTML here
+  //     // For example, you can use querySelectorAll to select all elements with a specific class name
+  //     // and then modify their text content
+  //     const elements = document.querySelectorAll('.example-class');
+  //     elements.forEach((element) => {
+  //       element.textContent = 'Modified text';
+  //     });
+  //     setHtml(document.documentElement.outerHTML);
+  //   };
+  //   manipulateHTML();
+  // }, []);
+
   const [checkboxes, setCheckboxes] = React.useState([
     {
       label:
@@ -51,12 +69,14 @@ const CheckList = () => {
       checkboxes.length) *
     100;
   console.log(progress);
+
   return (
     <div className="space-y-6">
+      {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
       <Header text='Make your online shopping sustainable!' />
       {checkboxes.map((checkbox, index) => (
         <div key={index}>
-          <label className="flex gap-2 text-black dark:text-white">
+          <label className="flex gap-2 items-center text-black dark:text-white">
             <input
               className="border-[1px] border-black w-8 h-8 bg-white flex-shrink-0 rounded-sm checkbox  "
               checked={checkbox.checked}
